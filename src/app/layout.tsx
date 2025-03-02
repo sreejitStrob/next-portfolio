@@ -25,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body>
         {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 w-full bg-white dark:bg-black shadow-sm z-50">
-          <div className="container mx-auto p-3">
-            <div className="flex items-center justify-between py-4 lg:py-6">
+        <div className="fixed top-0 left-0 w-full bg-white dark:bg-amber-200 shadow-sm z-50">
+          <div className="container mx-auto p-3 ">
+            <div className="flex items-center justify-between  py-4 lg:py-6">
               {/* Logo + Name */}
               <Link className="flex items-center" href="/">
                 <Image
@@ -66,7 +66,7 @@ export default function RootLayout({
         </div>
 
         {/* Content with padding to prevent overlap */}
-        <div className="pt-[72px]">{children}</div>
+        <div className="pt-[72px] dark:text-amber-500">{children}</div>
       </body>
     </html>
   );

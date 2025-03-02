@@ -16,10 +16,10 @@ export default function Home() {
             </Image>
           </div>
           <h1
-              className="pt-3 font-body text-2xl font-extrabold text-primary dark:text-white md:text-5xl lg:text-5xl"
-            >
-              Hi, I’m Sreejit M.
-            </h1>
+  className="pt-3 font-body text-2xl font-extrabold text-primary dark:text-secondary dark:bg-amber-300 md:text-5xl lg:text-5xl"
+>
+  Hi, I’m Sreejit M.
+</h1>
             <p className="pt-3 font-body text-xl font-medium text-primary dark:text-white">
               Software engineer and open-source enthusiast building with JavaScript, React, Node, and Golang—chasing flow states and living the Mumbai life.
             </p>
