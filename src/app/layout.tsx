@@ -27,68 +27,46 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <div className="container mx-auto p-3">
-      <div className="flex items-center justify-between py-6 lg:py-10">
-        {/* Logo + Name */}
-        <Link className="flex items-center" href="/">
-          <Image
-            src="logo.svg"
-            width={60}
-            height={60}
-            alt="Picture of the author"
-            className="mr-3"
-          />
-          <div className="hidden font-body text-2xl font-extrabold text-primary dark:text-white lg:block">
-            Sreejit M
-          </div>
-        </Link>
+        {/* Fixed Navbar */}
+        <div className="fixed top-0 left-0 w-full bg-white dark:bg-black shadow-sm z-50">
+          <div className="container mx-auto p-3">
+            <div className="flex items-center justify-between py-4 lg:py-6">
+              {/* Logo + Name */}
+              <Link className="flex items-center" href="/">
+                <Image
+                  src="logo.svg"
+                  width={60}
+                  height={60}
+                  alt="Picture of the author"
+                  className="mr-3"
+                />
+                <div className="hidden font-body text-2xl font-extrabold text-primary dark:text-white lg:block">
+                  Sreejit M
+                </div>
+              </Link>
 
-        {/* Navigation */}
-        <div className="hidden lg:flex items-center">
-          <ul className="flex items-center">
-           
-            <li className="group relative mr-6">
-              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
-              <Link
-                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                href="/"
-              >
-                Intro
-              </Link>
-            </li>
-            <li className="group relative mr-6">
-              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
-              <Link
-                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                href="/"
-              >
-                Blog
-              </Link>
-            </li>
-            <li className="group relative mr-6">
-              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
-              <Link
-                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                href="/"
-              >
-                Categories
-              </Link>
-            </li>
-            <li className="group relative mr-6">
-              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
-              <Link
-                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                href="/"
-              >
-                Resume
-              </Link>
-            </li>
-          </ul>
+              {/* Navigation */}
+              <div className="hidden lg:flex items-center">
+                <ul className="flex items-center">
+                  {["Intro", "Blog", "Categories", "Resume"].map((item) => (
+                    <li key={item} className="group relative mr-6">
+                      <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
+                      <Link
+                        className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                        href="/"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </div>
-    </div>
-        {children}
+
+        {/* Content with padding to prevent overlap */}
+        <div className="pt-[72px]">{children}</div>
       </body>
     </html>
   );
