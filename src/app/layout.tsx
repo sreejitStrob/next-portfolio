@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +26,68 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+      <div className="container mx-auto p-3">
+      <div className="flex items-center justify-between py-6 lg:py-10">
+        {/* Logo + Name */}
+        <Link className="flex items-center" href="/">
+          <Image
+            src="logo.svg"
+            width={60}
+            height={60}
+            alt="Picture of the author"
+            className="mr-3"
+          />
+          <div className="hidden font-body text-2xl font-extrabold text-primary dark:text-white lg:block">
+            Sreejit M
+          </div>
+        </Link>
+
+        {/* Navigation */}
+        <div className="hidden lg:flex items-center">
+          <ul className="flex items-center">
+           
+            <li className="group relative mr-6">
+              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
+              <Link
+                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                href="/"
+              >
+                Intro
+              </Link>
+            </li>
+            <li className="group relative mr-6">
+              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
+              <Link
+                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                href="/"
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="group relative mr-6">
+              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
+              <Link
+                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                href="/"
+              >
+                Categories
+              </Link>
+            </li>
+            <li className="group relative mr-6">
+              <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
+              <Link
+                className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                href="/"
+              >
+                Resume
+              </Link>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
         {children}
       </body>
     </html>
