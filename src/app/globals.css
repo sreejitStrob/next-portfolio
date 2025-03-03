@@ -23,7 +23,7 @@
   }
 }
 
-/* ✅ Apply globally so all text uses Nunito Sans */
+
 body {
   color: var(--foreground);
   background: var(--background);
