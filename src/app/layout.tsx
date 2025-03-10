@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import Head from 'next/head'
 
 
 export const metadata: Metadata = {
@@ -19,6 +19,12 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="light">
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+          />
+        </Head>
       <body>
         {/* Fixed Navbar */}
         <div className="fixed top-0 left-0 w-full bg-white dark:bg-amber-200 shadow-sm z-50">
@@ -46,12 +52,15 @@ export default function RootLayout({
                       <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
                       <Link
                         className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                        href="/"
+                        href={`/${item.toLowerCase()}`}
                       >
                         {item}
                       </Link>
                     </li>
                   ))}
+                    <li>
+                      <i className="bx bx-moon"></i>
+                    </li>
                 </ul>
               </div>
             </div>
