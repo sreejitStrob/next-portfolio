@@ -7,7 +7,7 @@ export default function Home() {
   <div className="container mx-auto p-3">
     <div className="border-b border-gray-200 py-16 lg:py-15">
       <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:justify-between lg:gap-x-8">
-        <div className="group w-full max-lg:max-w-xl lg:w-2/3 border border-gray-300 rounded-2xl flex flex-col lg:flex-row">
+        <div className="group w-full max-lg:max-w-xl lg:w-1/2 border border-gray-300 rounded-2xl flex flex-col lg:flex-row">
           {/* Image on the left */}
           <div className="w-full lg:w-1/2">
             <img
