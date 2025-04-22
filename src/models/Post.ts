@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import { sequelize } from '../lib/sequelize'; // import your Sequelize instance
+import { sequelize } from '@/lib/sequelize';  // import your Sequelize instance
 
 // Define the interface for the attributes of the model
 interface PostAttributes {
