@@ -33,7 +33,7 @@ export default function RootLayout({
               {/* Logo + Name */}
               <Link className="flex items-center" href="/">
                 <Image
-                  src="logo.svg"
+                  src="/logo.svg"
                   width={60}
                   height={60}
                   alt="Picture of the author"
