@@ -19,7 +19,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
         <Head>
           <link
             rel="stylesheet"
@@ -28,47 +28,65 @@ export default function RootLayout({
         </Head>
       <body className="dark:bg-gray-900">
         {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 w-full bg-white dark:bg-[#101826] shadow-sm z-50">
-          <div className="container mx-auto p-3 ">
-            <div className="flex items-center justify-between  py-1 lg:py-6">
+        <div className="fixed top-0 left-0 w-full z-50">
+          {/* Background with glassmorphism */}
+          <div className="absolute inset-0 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-white/20 dark:border-gray-700/30 shadow-lg"></div>
+          
+          <div className="container mx-auto p-3 relative">
+            <div className="flex items-center justify-between py-2 lg:py-4">
               {/* Logo + Name */}
-              <Link className="flex items-center" href="/">
-                <Image
-                  src="/logo.svg"
-                  width={60}
-                  height={60}
-                  alt="Picture of the author"
-                  className="mr-3"
-                />
-                <div className="hidden font-body text-2xl font-extrabold text-primary dark:text-white lg:block">
+              <Link className="flex items-center group" href="/">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <Image
+                    src="/logo.svg"
+                    width={50}
+                    height={50}
+                    alt="Picture of the author"
+                    className="relative mr-3 rounded-full border-2 border-white/20 dark:border-gray-600/20 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="hidden font-body text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent dark:from-white dark:to-blue-300 lg:block group-hover:from-secondary group-hover:to-primary transition-all duration-300">
                   Sreejit M
                 </div>
               </Link>
 
               {/* Navigation */}
               <div className="hidden lg:flex items-center">
-                <ul className="flex items-center">
-                  {["Intro", "Blog", "Categories", "Resume"].map((item) => (
-                    <li key={item} className="group relative mr-6">
-                      <div className="absolute left-0 bottom-0 z-20 h-0 w-full transition-all group-hover:h-2 group-hover:bg-green-300"></div>
-                      <Link
-                        className="relative z-30 block px-2 font-body text-xl font-bold text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
-                        href={`/${item.toLowerCase()}`}
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                    <MdLightMode className="text-5xl dark:text-white"/>
-                </ul>
+                <div className="backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 rounded-2xl px-6 py-3 border border-white/20 dark:border-gray-700/30 shadow-lg">
+                  <ul className="flex items-center gap-2">
+                    {["Intro", "Blog", "Categories", "Resume"].map((item) => (
+                      <li key={item} className="group relative">
+                        <Link
+                          className="relative block px-4 py-2 font-body text-lg font-semibold text-gray-700 dark:text-gray-300 transition-all duration-300 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 hover:text-primary dark:hover:text-white"
+                          href={`/${item.toLowerCase()}`}
+                        >
+                          <span className="relative z-10">{item}</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </Link>
+                      </li>
+                    ))}
+                    <div className="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-2"></div>
+                    <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
+                      <MdLightMode className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
+                    </button>
+                  </ul>
+                </div>
               </div>
 
               {/* Mobile Menu Button */}
               <div className="lg:hidden">
-                <ul className="flex items-center gap-2">
-                  <MdLightMode className="text-4xl dark:text-white"/>
-                  <GiHamburgerMenu className="text-4xl dark:text-[#E5E5E5]"/>
-                </ul>
+                <div className="backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 rounded-2xl px-4 py-3 border border-white/20 dark:border-gray-700/30 shadow-lg">
+                  <ul className="flex items-center gap-3">
+                    <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
+                      <MdLightMode className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
+                    </button>
+                    <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+                    <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
+                      <GiHamburgerMenu className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
+                    </button>
+                  </ul>
+                </div>
               </div>
 
             </div>
