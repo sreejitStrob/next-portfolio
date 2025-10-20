@@ -3,7 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import Head from 'next/head'
-
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 
 export const metadata: Metadata = {
   title: "Sreejit's blog",
@@ -27,9 +28,9 @@ export default function RootLayout({
         </Head>
       <body className="dark:bg-gray-900">
         {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 w-full bg-white dark:bg-[#D35B1F] shadow-sm z-50">
+        <div className="fixed top-0 left-0 w-full bg-white dark:bg-[#101826] shadow-sm z-50">
           <div className="container mx-auto p-3 ">
-            <div className="flex items-center justify-between  py-4 lg:py-6">
+            <div className="flex items-center justify-between  py-1 lg:py-6">
               {/* Logo + Name */}
               <Link className="flex items-center" href="/">
                 <Image
@@ -58,11 +59,18 @@ export default function RootLayout({
                       </Link>
                     </li>
                   ))}
-                    <li>
-                      <i className="bx bx-moon"></i>
-                    </li>
+                    <MdLightMode className="text-5xl dark:text-white"/>
                 </ul>
               </div>
+
+              {/* Mobile Menu Button */}
+              <div className="lg:hidden">
+                <ul className="flex items-center gap-2">
+                  <MdLightMode className="text-4xl dark:text-white"/>
+                  <GiHamburgerMenu className="text-4xl dark:text-[#E5E5E5]"/>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
