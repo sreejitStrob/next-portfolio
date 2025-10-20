@@ -18,16 +18,16 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="dark">
         <Head>
           <link
             rel="stylesheet"
             href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
           />
         </Head>
-      <body>
+      <body className="dark:bg-gray-900">
         {/* Fixed Navbar */}
-        <div className="fixed top-0 left-0 w-full bg-white dark:bg-amber-200 shadow-sm z-50">
+        <div className="fixed top-0 left-0 w-full bg-white dark:bg-[#D35B1F] shadow-sm z-50">
           <div className="container mx-auto p-3 ">
             <div className="flex items-center justify-between  py-4 lg:py-6">
               {/* Logo + Name */}
@@ -68,7 +68,7 @@ export default function RootLayout({
         </div>
         
         {/* Content with padding to prevent overlap */}
-        <div className="pt-[72px] dark:text-amber-500">{children}</div>
+        <div className="pt-[72px] dark:bg-[#171730]">{children}</div>
       </body>
     </html>
   );
