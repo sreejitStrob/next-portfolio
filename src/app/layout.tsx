@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from 'next/head'
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
+import ThemeToggle from '@/components/ThemeToggle';
 
 export const metadata: Metadata = {
   title: "Sreejit's blog",
@@ -19,7 +19,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en" className="light">
+    <html lang="en" className="dark">
         <Head>
           <link
             rel="stylesheet"
@@ -67,9 +67,7 @@ export default function RootLayout({
                       </li>
                     ))}
                     <div className="w-px h-6 bg-gray-300 dark:bg-gray-600 mx-2"></div>
-                    <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
-                      <MdLightMode className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
-                    </button>
+                    <ThemeToggle />
                   </ul>
                 </div>
               </div>
@@ -78,9 +76,7 @@ export default function RootLayout({
               <div className="lg:hidden">
                 <div className="backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 rounded-2xl px-4 py-3 border border-white/20 dark:border-gray-700/30 shadow-lg">
                   <ul className="flex items-center gap-3">
-                    <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
-                      <MdLightMode className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
-                    </button>
+                    <ThemeToggle />
                     <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
                     <button className="p-2 rounded-xl hover:bg-white/20 dark:hover:bg-gray-700/20 transition-all duration-300 group">
                       <GiHamburgerMenu className="text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-white transition-colors duration-300"/>
